@@ -32,7 +32,7 @@ public class Graph {
 		int count = 0;
 		while (count <= input.length()) {
 			int i = count;
-			int rem = count / (2*M);
+			int rem = count / (2 * M);
 			int j = count + (2 * M);
 			while (i < j) {
 
@@ -44,7 +44,7 @@ public class Graph {
 				} else {
 					dependents.add(0);
 				}
-				count+=2;
+				count += 2;
 				i += 2;
 			}
 		}
@@ -111,6 +111,15 @@ public class Graph {
 			}
 		}
 		System.out.print(res.toString().trim());
+	}
+
+	public void addUnDirectedEdge(int src, int target) {
+		this.graph.get(src).add(target);
+		this.graph.get(target).add(src);
+	}
+
+	public void removeDirectedEdge(int src, int target) {
+		this.graph.get(src).remove(((Integer) target));
 	}
 
 	public void addEdge(int src, int target) {
